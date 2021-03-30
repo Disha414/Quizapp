@@ -1,0 +1,99 @@
+<html>
+    <head>
+
+        <title>Quiz Application</title>
+
+        
+    </head>
+    <body>
+        
+        <div class="main-div">
+            <div class="inner-div">
+                <h2 class="question">Question here</h2>
+                <ul>
+                    <li>
+                        <input type="radio" name="answer" id="answer1" class="answer">
+                        <label for="ans1" id="op1">  option</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="answer2" class="answer">
+                        <label for="ans2" id="op2">  option</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="answer3" class="answer">
+                        <label for="ans3" id="op3">  option</label>
+                    </li>
+                    <li>
+                        
+                        <input type="radio" name="answers" id="answer4" class="answer">
+                        <label for="ans4" id="op4">  option</label>
+                    </li>
+                </ul>
+                <div>
+                    <div class="row">
+                        <div >
+                <button id="submit" class="btn btn-danger" (click)="submit()">submit</button>
+            </div>
+            
+            <div class="col-8">
+                <div *ngIf="d==1">
+                        <button id="btn1" type="button" class="btn btn-success" data-toggle="modal" style="font-size: small"data-target="#myModal">Click to Review</button>
+                        <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h3 class="modal-title" id="#h1">Your Scorecard</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col"><strong>Question</strong> </th>
+                                                <th scope="col">Your Answer</th>
+                                                <th scope="col">Correct Answer</th>
+                                                </tr>
+                                                <tr *ngFor="let m of quiz;let i=index">
+                                                    <th scope="col"><strong>{{ m.question }}</strong> </th>
+                                                    <th scope="col">{{ user_answer[i] }}</th>
+                                                    <th scope="col">{{ answer1[i] }}</th>
+                                                    </tr>
+                                                
+                                            </thead>
+                          </table>
+                          <hr>
+                          <br>
+                          <h4>Your score : {{ score }}</h4>
+                          <h4>Wrong questions : {{ quiz.length-score}}</h4>    
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-info" data-dismiss="modal" >Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <button type="button" class="btn btn-primary" [routerLink]='["/home"]' >Exit</button>
+                            </div>
+
+                        
+
+                           
+           
+                </div> 
+                    
+            </div>
+                <div id="scoreview" class="scoreArea">
+                       
+                    </div>
+                    
+            </div>  
+                </div>
+
+                
+            </div>
+            
+        
+        <!--<script src="quiziz.js"></script>-->
+
+    </body>
+</html>
